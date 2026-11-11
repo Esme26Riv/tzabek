@@ -1,0 +1,20 @@
+{
+  "preguntas": [
+    {
+      "pregunta": "¿Qué garantías tienen los drones?",
+      "respuesta": "Aquí se detallará la garantía de cada modelo una vez que el cliente confirme las condiciones."
+    },
+    {
+      "pregunta": "¿Ofrecen capacitación de uso?",
+      "respuesta": "Está contemplada como servicio; el formato y el costo se confirman con el cliente."
+    },
+    {
+      "pregunta": "¿Cómo solicito una cotización?",
+      "respuesta": "Entra a la ficha del dron que te interesa y pulsa “Solicitar información o cotización”, o escríbenos desde Contacto."
+    },
+    {
+      "pregunta": "¿Qué programas educativos tienen?",
+      "respuesta": "Talleres, cursos y visitas escolares de educación STEM. Consulta la sección STEM para ver más."
+    }
+  ]
+}

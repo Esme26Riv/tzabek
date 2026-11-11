@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/Contacto.css">
+    <link rel="stylesheet" href="CSS/Compartido.css"> 
+
+    <title>Tzab-ek Aeronáutica</title>
+    <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
+    <script src="JS/contacto.js" defer></script>
+    <script src="JS/menu.js" defer></script>
+</head>
+<body>
+    <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
+    <header>
+        <a class="marca" href="Index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
+                <path d="M11.5 12h9M16 12v8.5"/>
+            </svg>
+            <span class="marca-texto">
+                <strong>TZAB-EK</strong>
+                <small>AERONÁUTICA</small>
+            </span>
+        </a>
+
+        <!-- Menú principal: el enlace de la página actual lleva class="activo" y aria-current="page" -->
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegación principal">
+            <a href="Index.html">Inicio</a>
+            <a href="Nosotros.html">Nosotros</a>
+            <a href="Catálogo.html">Catálogo</a>
+            <a href="Servicios.html">Servicios</a>
+            <a href="STEM.html">STEM</a>
+            <a href="FAQ.html">FAQ</a>
+            <a class="btn btn-oro nav-contacto" href="Contáctanos.html">Contáctanos</a>
+        </nav>
+
+        <a class="btn btn-oro" href="Contáctanos.html">Contáctanos</a>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: datos de contacto, mapa y formulario de cotización -->
+    <main>
+        <section id="inicio">
+            <div class="seccion1">
+                <h1>Contacto y cotización</h1>
+                <p>Estamos listos para ayudarte con información o una cotización.</p>
+            </div>
+
+            <div class="seccion2">
+                <!-- Columna izquierda: datos de contacto, redes sociales y mapa -->
+                <div class="datos">
+                    <h2>Dirección</h2>
+                    <p>Del Ejido 4347, Los Nogales, 32350 Juárez, Chih.</p>
+
+                    <h2>Teléfono</h2>
+                    <p>656 837 837 88</p>
+
+                    <h2>WhatsApp</h2>
+                    <p>656 829 838 92</p>
+
+                    <h2>Correo</h2>
+                    <p>enlace@tzab-ek.com</p>
+
+                    <!-- Redes sociales -->
+                    <div class="redes">
+                        <h2>Redes sociales</h2>
+                        <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i> 
+    </a>
+
+    <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw" target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i> 
+    </a>
+
+    <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
+                    </div>
+
+                    <!-- Mapa de Google Maps incrustado (iframe) -->
+                    <div class="ubicacion">
+                        <h2>Ubicación</h2>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212.10118171233057!2d-106.44779936716822!3d31.726303579036138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75eac959faa6f%3A0xe668bda73b98d2ac!2sDel%20Ejido%204347%2C%20Los%20Nogales%2C%2032350%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1793723452304!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <!-- Columna derecha: formulario de cotización. contacto.js lo valida y lo envía a PHP/guardar_cotizacion.php -->
+                <div class="formulario">
+                    <form id="formulario-contacto">
+                        <fieldset>
+                            <legend>Envíanos un mensaje</legend>
+
+                            <!-- Campo oculto: guarda el ID del dron cuando el usuario llega desde la ficha de un dron -->
+                            <input
+                                type="hidden"
+                                id="id-dron"
+                                name="IDDron"
+                            >
+
+                            <p>
+                                <label for="nombre-contacto">
+                                    Nombre completo:
+                                </label>
+                                <input
+                                    type="text"
+                                    id="nombre-contacto"
+                                    name="Nombre"
+                                    maxlength="150"
+                                    autocomplete="name"
+                                    required
+                                >
+                            </p>
+
+                            <p>
+                                <label for="correo-contacto">Correo:</label>
+                                <input
+                                    type="email"
+                                    id="correo-contacto"
+                                    name="Correo"
+                                    maxlength="150"
+                                    autocomplete="email"
+                                    required
+                                >
+                            </p>
+
+                            <p>
+                                <label for="telefono-contacto">Teléfono:</label>
+                                <input
+                                    type="tel"
+                                    id="telefono-contacto"
+                                    name="Telefono"
+                                    maxlength="25"
+                                    autocomplete="tel"
+                                    required
+                                >
+                            </p>
+
+                            <p>
+                                <label for="empresa-contacto">
+                                    Empresa o institución:
+                                </label>
+                                <input
+                                    type="text"
+                                    id="empresa-contacto"
+                                    name="Empresa"
+                                    maxlength="150"
+                                    autocomplete="organization"
+                                    required
+                                >
+                            </p>
+
+                            <p>
+                                <label for="asunto-contacto">Asunto:</label>
+                                <input
+                                    type="text"
+                                    id="asunto-contacto"
+                                    name="Asunto"
+                                    maxlength="150"
+                                    required
+                                >
+                            </p>
+
+                            <p>
+                                <label for="mensaje-contacto">
+                                    ¿En qué podemos ayudarte?
+                                </label>
+                            </p>
+
+                            <textarea
+                                id="mensaje-contacto"
+                                name="Ayuda"
+                                minlength="10"
+                                maxlength="300"
+                                rows="5"
+                                required
+                            ></textarea>
+
+                            <p>
+                                <button type="submit" id="boton-enviar">
+                                    Enviar mensaje
+                                </button>
+                            </p>
+
+                            <!-- Mensaje de éxito o error del envío -->
+                            <p id="mensaje-formulario" role="alert" aria-live="polite"></p>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
+    <footer>
+        <!-- Parte superior del footer: 4 columnas -->
+        <section class="footer1">
+            <!-- Columna 1: logotipo y lema -->
+            <div class="uno">
+                <a class="marca" href="Index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
+                        <path d="M11.5 12h9M16 12v8.5"/>
+                    </svg>
+                    <span class="marca-texto">
+                        <strong>TZAB-EK</strong>
+                        <small>AERONÁUTICA</small>
+                    </span>
+                </a>
+                <p>Innovación, tecnología y educación para un mejor futuro.</p>
+            </div>
+
+            <!-- Columna 2: enlaces de navegación -->
+            <div class="dos">
+                <h5>Explorar</h5>
+                <a href="Index.html">Inicio</a>
+                <a href="Nosotros.html">Nosotros</a>
+                <a href="Catálogo.html">Catálogo</a>
+                <a href="Servicios.html">Servicios</a>
+                <a href="STEM.html">STEM</a>
+                <a href="FAQ.html">FAQ</a>
+            </div>
+
+            <!-- Columna 3: redes sociales (iconos de Font Awesome) -->
+            <div class="tres">
+                <h5>Síguenos</h5>
+                <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i> 
+    </a>
+
+    <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw" target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i> 
+    </a>
+
+    <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
+            </div>
+
+            <!-- Columna 4: datos de contacto y botón de cotización -->
+            <div class="cuatro">
+                <h5>Contacto</h5>
+                <p>Dirección:
+                    Del Ejido 4347, Los Nogales, 32350 Juárez, Chih.</p>
+                <p>Teléfono: 656 837 837 88
+                    WhatsApp: 656 829 838 92
+                    Correo: enlace@tzab-ek.com</p>
+                <a class="cta-footer" href="Contáctanos.html">Solicitar cotización</a>
+            </div>
+        </section>
+
+        <!-- Barra inferior: derechos reservados -->
+        <section class="fotter2">
+            <p>© 2026 Tzab-ek Aeronáutica S.A. de C.V. Todos los derechos reservados. Aviso de privacidad y Términos y condiciones.</p>
+        </section>
+    </footer>
+</body>
+</html>

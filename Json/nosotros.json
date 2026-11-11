@@ -1,0 +1,31 @@
+{
+  "seccion2": {
+    "titulo": "Tzab-ek Aeronáutica",
+    "parrafo1": "Somos una empresa mexicana dedicada al diseño, fabricación y comercialización de drones desarrollados con talento local en Ciudad Juárez, Chihuahua. También promovemos actividades de educación STEM.",
+    "parrafo2": "Nuestro compromiso es impulsar la innovación y el conocimiento para generar un impacto positivo en la industria y en la sociedad."
+  },
+  "seccion3": {
+    "tarjetas": [
+      {
+        "icono": "target",
+        "titulo": "Misión",
+        "descripcion": "Desarrollar soluciones tecnológicas enfocadas en la innovación, la seguridad y la educación STEM."
+      },
+      {
+        "icono": "eye",
+        "titulo": "Visión",
+        "descripcion": "Ser referentes en el desarrollo de drones y tecnología en Latinoamérica."
+      },
+      {
+        "icono": "star",
+        "titulo": "Valores",
+        "descripcion": "Innovación, seguridad, compromiso, educación y responsabilidad."
+      },
+      {
+        "icono": "flag",
+        "titulo": "Objetivos",
+        "descripcion": "Presentar nuestras soluciones y facilitar el contacto con quienes las necesitan."
+      }
+    ]
+  }
+}

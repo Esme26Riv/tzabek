@@ -1,0 +1,263 @@
+/* ============================================
+   TZAB-EK · Contacto y cotización
+   Guárdalo como CSS/Contacto.css
+   (usa las variables de CSS/Compartido.css)
+   ============================================ */
+
+main > section {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: clamp(32px, 6vw, 72px) var(--margen) 0;
+}
+
+/* ---------- Título ---------- */
+.seccion1 { margin-bottom: clamp(32px, 6vw, 72px); }
+
+.seccion1 h1 {
+    font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+    letter-spacing: -.01em;
+    margin-bottom: 18px;
+}
+.seccion1 p {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text);
+}
+
+/* ---------- Dos columnas ---------- */
+.seccion2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.datos,
+.formulario {
+    position: relative;
+    padding: 28px;
+    background: var(--panel);
+    border: 1px solid var(--green-dim);
+}
+
+/* Esquinas doradas */
+.datos::before, .formulario::before,
+.datos::after,  .formulario::after {
+    content: "";
+    position: absolute;
+    width: 18px; height: 18px;
+    border: 2px solid var(--gold);
+    pointer-events: none;
+}
+.datos::before, .formulario::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.datos::after,  .formulario::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* ---------- Datos de contacto ---------- */
+.datos > h2 {
+    position: relative;
+    padding-left: 42px;
+    margin: 0 0 4px;
+    font-size: .95rem;
+    font-weight: 700;
+}
+.datos > h2::before {
+    position: absolute;
+    left: 0; top: -2px;
+    width: 24px;
+    text-align: center;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.15rem;
+    color: var(--gold);
+}
+.datos > h2:nth-of-type(1)::before { content: "\f3c5"; } /* ubicación */
+.datos > h2:nth-of-type(2)::before { content: "\f095"; } /* teléfono */
+.datos > h2:nth-of-type(3)::before { content: "\f232"; font-family: "Font Awesome 6 Brands"; font-weight: 400; } /* whatsapp */
+.datos > h2:nth-of-type(4)::before { content: "\f0e0"; } /* correo */
+
+.datos > p {
+    margin: 0 0 22px;
+    padding-left: 42px;
+    color: var(--muted);
+}
+
+/* Redes sociales */
+.redes { margin-top: 28px; }
+.redes h2 { font-size: .95rem; font-weight: 700; margin-bottom: 14px; }
+.redes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+.redes h2 { width: 100%; margin: 0 0 2px; }
+.redes a,
+.redes-lista a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px; height: 52px;
+    font-size: 1.35rem;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--green);
+    background: var(--bg);
+    border: 1px solid var(--green-dim);
+    transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+.redes a:hover,
+.redes-lista a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #111;
+    transform: translateY(-2px);
+}
+.redes-lista { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Mapa (marcador de posición) */
+.ubicacion { margin-top: 28px; }
+.ubicacion > h2 {            /* oculto visualmente, sigue siendo accesible */
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+.mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 260px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--bg);
+    background-image:
+        linear-gradient(rgba(224,169,30,.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224,169,30,.10) 1px, transparent 1px);
+    background-size: 40px 40px;
+    border: 1px solid var(--line);
+}
+.mapa-punto {
+    position: relative;
+    width: 14px; height: 14px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 14px rgba(31, 201, 140, .14);
+    animation: pulso 2.4s ease-in-out infinite;
+}
+.mapa strong { font-size: .95rem; }
+.mapa span { font-size: .9rem; color: var(--muted); }
+.mapa iframe { width: 100%; height: 100%; min-height: 260px; border: 0; }
+.ubicacion iframe { display: block; width: 100%; max-width: 100%; border: 0; }
+
+/* ---------- Formulario ---------- */
+.formulario form { height: 100%; }
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 20px;
+    font-family: var(--f-title);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+fieldset p { margin: 0; }
+
+/* Campos a ancho completo por defecto; correo/teléfono y empresa/asunto van en pareja */
+fieldset > p { grid-column: 1 / -1; }
+fieldset > p:nth-of-type(2),
+fieldset > p:nth-of-type(3),
+fieldset > p:nth-of-type(4),
+fieldset > p:nth-of-type(5) { grid-column: span 1; }
+
+fieldset > p:nth-of-type(6) { margin-bottom: -10px; } /* etiqueta del mensaje pegada al textarea */
+fieldset > textarea { grid-column: 1 / -1; }
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+input:not([type="hidden"]),
+textarea {
+    width: 100%;
+    padding: 14px;
+    font: inherit;
+    font-size: .95rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+input:not([type="hidden"]) { height: 54px; }
+textarea { min-height: 150px; resize: vertical; }
+
+input:hover, textarea:hover { border-color: rgba(255, 255, 255, .18); }
+input:focus, textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(31, 201, 140, .15);
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--text);
+    box-shadow: 0 0 0 100px var(--bg) inset;
+}
+
+#boton-enviar {
+    padding: 14px 26px;
+    font-family: var(--f-body);
+    font-size: .95rem;
+    font-weight: 600;
+    color: #111;
+    background: var(--gold);
+    border: 0;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+    transition: background .2s, transform .1s;
+}
+#boton-enviar:hover { background: #f0ba2e; }
+#boton-enviar:active { transform: translateY(1px); }
+#boton-enviar:disabled { opacity: .55; cursor: not-allowed; }
+
+/* ---------- Mensaje del formulario ---------- */
+#mensaje-formulario { font-size: .88rem; line-height: 1.4; color: #ff6b5e; }
+#mensaje-formulario:empty { display: none; }
+#mensaje-formulario:not(:empty) {
+    padding: 10px 12px;
+    border-left: 3px solid currentColor;
+    background: rgba(255, 107, 94, .08);
+}
+#mensaje-formulario.exito,
+#mensaje-formulario.success { color: var(--green); background: rgba(31, 201, 140, .08); }
+
+@keyframes pulso { 50% { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { .mapa-punto { animation: none; } }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .seccion2 { grid-template-columns: minmax(0, 1fr); }
+    .datos, .formulario { min-width: 0; }
+}
+@media (max-width: 560px) {
+    .datos, .formulario { padding: 22px 16px; }
+    fieldset > p:nth-of-type(2),
+    fieldset > p:nth-of-type(3),
+    fieldset > p:nth-of-type(4),
+    fieldset > p:nth-of-type(5) { grid-column: 1 / -1; }
+}

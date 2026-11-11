@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/Index.css">
+    <link rel="stylesheet" href="CSS/Compartido.css">
+    <title>Tzab-ek Aeronáutica</title>
+
+    <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
+    <script src="JS/catalogo1.js" defer></script>
+    <script src="JS/Drone.js" defer></script>
+    <script src="JS/menu.js" defer></script>
+</head>
+<body>
+    <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
+    <header>
+        <a class="marca" href="Index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
+                <path d="M11.5 12h9M16 12v8.5"/>
+            </svg>
+            <span class="marca-texto">
+                <strong>TZAB-EK</strong>
+                <small>AERONÁUTICA</small>
+            </span>
+        </a>
+
+        <!-- Menú principal: el enlace de la página actual lleva class="activo" y aria-current="page" -->
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegación principal">
+            <a href="Index.html" class="activo" aria-current="page">Inicio</a>
+            <a href="Nosotros.html">Nosotros</a>
+            <a href="Catálogo.html">Catálogo</a>
+            <a href="Servicios.html">Servicios</a>
+            <a href="STEM.html">STEM</a>
+            <a href="FAQ.html">FAQ</a>
+            <a class="btn btn-oro nav-contacto" href="Contáctanos.html">Contáctanos</a>
+        </nav>
+
+        <a class="btn btn-oro" href="Contáctanos.html">Contáctanos</a>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: página de inicio (hero, propósito, quiénes somos, carrusel de catálogo y cotización) -->
+    <main>
+        <!-- HERO -->
+        <section id="inicio">
+            <div class="hero-texto">
+                <h1>Tecnología aérea para un <span>mejor futuro</span></h1>
+                <p>Drones y soluciones tecnológicas para la industria, la educación y la sociedad, diseñados y fabricados en Ciudad Juárez.</p>
+                <div class="acciones">
+                    <a class="btn btn-oro" href="Catálogo.html">Ver catálogo</a>
+                    <a class="btn btn-borde" href="Nosotros.html">Conocer a Tzab-ek</a>
+                </div>
+            </div>
+
+            <!-- Dron con movimiento (lo monta drone.js) -->
+            <div class="drone-stage" data-drone="vuelo"></div>
+        </section>
+
+        <!-- TECNOLOGÍA CON PROPÓSITO -->
+        <section id="proposito">
+            <h2>Tecnología con propósito</h2>
+            <p>Diseñamos soluciones aeronáuticas que integran tecnología, innovación y conocimiento para responder a necesidades reales.</p>
+
+            <div class="tarjetas">
+                <div class="tarjeta">
+                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                    <h5>Desarrollo de alto rendimiento</h5>
+                    <p>Optimizamos cada sistema para lograr vuelos eficientes.</p>
+                </div>
+                <div class="tarjeta">
+                    <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+                    <h5>Servicios especializados</h5>
+                    <p>Soluciones adaptadas a cada proyecto y sector.</p>
+                </div>
+                <div class="tarjeta">
+                    <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                    <h5>Soluciones tecnológicas</h5>
+                    <p>Aplicaciones industriales, profesionales y sociales.</p>
+                </div>
+                <div class="tarjeta">
+                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                    <h5>Educación STEM</h5>
+                    <p>Talleres y proyectos para acercar la ciencia a estudiantes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿QUIÉNES SOMOS? -->
+        <section id="somos">
+            <!-- Dron tipo radar (lo monta drone.js) -->
+            <div class="somos-visual">
+                <div class="drone-stage" data-drone="radar"></div>
+            </div>
+
+            <div class="somos-texto">
+                <h2>¿Quiénes somos?</h2>
+                <h4>Una empresa juarense que desarrolla tecnología aérea con talento local y propósito social.</h4>
+                <p>Impulsamos la innovación y la educación para crear soluciones con aplicaciones reales.</p>
+                <a class="btn btn-borde" href="Nosotros.html">Conoce más</a>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO: carrusel de drones. catalogo1.js crea las tarjetas con los datos de la base de datos
+             y Drone.js dibuja una ilustración cuando un dron no tiene imagen -->
+        <section id="catalogo">
+            <div class="seccion1">
+                <div>
+                    <h2>Nuestro catálogo</h2>
+                    <p>Explora nuestra línea de drones y soluciones.</p>
+                </div>
+                <a class="btn btn-borde" href="Catálogo.html">Ver todos</a>
+            </div>
+
+            <!-- Carrusel: flecha anterior | pista con las tarjetas | flecha siguiente -->
+            <div class="carrusel" role="region" aria-roledescription="carrusel" aria-label="Drones del catálogo">
+                <button type="button" class="carrusel-btn" id="carrusel-anterior" aria-label="Ver drones anteriores">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <!-- Pista: aquí catalogo1.js inserta una tarjeta por cada dron. tabindex permite moverla con el teclado -->
+                <div class="carrusel-pista" id="contenedor-drones" tabindex="0">
+                    <p class="mensaje-catalogo">Cargando drones...</p>
+                </div>
+
+                <button type="button" class="carrusel-btn" id="carrusel-siguiente" aria-label="Ver drones siguientes">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- COTIZACIÓN -->
+        <section id="cotizacion">
+            <div class="cotizacion-caja">
+                <div class="cotizacion-texto">
+                    <h2>¿Tienes un proyecto en mente?</h2>
+                    <p>Cuéntanos qué necesitas y te ayudamos a encontrar la mejor solución.</p>
+                </div>
+                <a class="btn btn-oro" href="Contáctanos.html">Solicitar cotización</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
+    <footer>
+        <!-- Parte superior del footer: 4 columnas -->
+        <section class="footer1">
+            <!-- Columna 1: logotipo y lema -->
+            <div class="uno">
+                <a class="marca" href="Index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
+                        <path d="M11.5 12h9M16 12v8.5"/>
+                    </svg>
+                    <span class="marca-texto">
+                        <strong>TZAB-EK</strong>
+                        <small>AERONÁUTICA</small>
+                    </span>
+                </a>
+                <p>Innovación, tecnología y educación para un mejor futuro.</p>
+            </div>
+
+            <!-- Columna 2: enlaces de navegación -->
+            <div class="dos">
+                <h5>Explorar</h5>
+                <a href="Index.html">Inicio</a>
+                <a href="Nosotros.html">Nosotros</a>
+                <a href="Catálogo.html">Catálogo</a>
+                <a href="Servicios.html">Servicios</a>
+                <a href="STEM.html">STEM</a>
+                <a href="FAQ.html">FAQ</a>
+            </div>
+
+            <!-- Columna 3: redes sociales (iconos de Font Awesome) -->
+            <div class="tres">
+                <h5>Síguenos</h5>
+                <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i> 
+    </a>
+
+    <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw" target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i> 
+    </a>
+
+    <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
+            </div>
+
+            <!-- Columna 4: datos de contacto y botón de cotización -->
+            <div class="cuatro">
+                <h5>Contacto</h5>
+                <p>Ciudad Juárez, Chihuahua</p>
+                <p>Teléfono y correo por confirmar</p>
+                <a class="cta-footer" href="Contáctanos.html">Solicitar cotización</a>
+            </div>
+        </section>
+
+        <!-- Barra inferior: derechos reservados -->
+        <section class="fotter2">
+            <p>© 2026 Tzab-ek Aeronáutica S.A. de C.V. Todos los derechos reservados. Aviso de privacidad y Términos y condiciones.</p>
+        </section>
+    </footer>
+</body>
+</html>

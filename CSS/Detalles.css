@@ -1,0 +1,404 @@
+/* ==========================================================
+   TZAB-EK AERONÁUTICA · Detalles del dron
+   (el header y el footer viven en Compartido.css)
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+main {
+    --c-oro: #f2b705;
+    --c-verde: #35d399;
+    --c-verde-dim: #1f8f68;
+    --c-tarjeta: #141414;
+    --c-linea: rgba(255, 255, 255, 0.08);
+    --c-linea-fuerte: rgba(255, 255, 255, 0.14);
+    --c-texto: #f4efe6;
+    --c-dim: #aaa9a4;
+    --c-tenue: #7a7a76;
+
+    --f-titulo: var(--font-head, "Space Grotesk", "Segoe UI", sans-serif);
+    --f-texto: var(--font-body, "Space Grotesk", "Segoe UI", sans-serif);
+    --f-mono: var(--font-mono, "JetBrains Mono", "Courier New", monospace);
+
+    max-width: 1240px;
+    margin-inline: auto;
+    padding: 4.5rem clamp(1.25rem, 4.5vw, 4rem) 6rem;
+    color: var(--c-texto);
+    font-family: var(--f-texto);
+}
+
+#detalles-dron[hidden] {
+    display: none;
+}
+
+/* ---------- Mensaje de estado ---------- */
+#mensaje-dron {
+    margin: 0;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--c-tenue);
+}
+
+#mensaje-dron:empty {
+    display: none;
+}
+
+/* ==========================================================
+   Sección 1: imágenes + información
+   ========================================================== */
+main .seccion1 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+    margin-bottom: 3.5rem;
+}
+
+/* ---------- Galería ---------- */
+.imagenes {
+    min-width: 0;
+}
+
+#imagen-principal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 260px;
+    overflow: hidden;
+    border: 1px solid var(--c-linea);
+    background-color: #0d0d0d;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* El cartel completo se muestra al ancho de la columna para que se pueda leer */
+#imagen-principal img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: 0.75rem;
+}
+
+#imagen-principal p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--c-tenue);
+}
+/* ---------- Ruta de navegación ---------- */
+.migas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--f-mono);
+    font-size: 0.8rem;
+    color: var(--c-dim);
+}
+
+.migas a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.migas a:hover,
+.migas a:focus-visible {
+    color: var(--c-oro);
+}
+
+.migas a::after {
+    content: "/";
+    margin-left: 0.5rem;
+    color: var(--c-tenue);
+}
+
+/* Esquinas doradas: arriba-izquierda y abajo-derecha */
+#imagen-principal::before,
+#imagen-principal::after,
+.seccion2 .uno::before,
+.seccion2 .uno::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 0 solid var(--c-oro);
+    pointer-events: none;
+}
+
+#imagen-principal::before,
+.seccion2 .uno::before {
+    top: -1px;
+    left: -1px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+}
+
+#imagen-principal::after,
+.seccion2 .uno::after {
+    right: -1px;
+    bottom: -1px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+}
+
+/* ---------- Miniaturas ---------- */
+.imgsecundarias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.imgsecundarias:empty {
+    display: none;
+}
+
+.imgsecundarias img {
+    display: block;
+    width: 72px;
+    height: 72px;
+    padding: 4px;
+    object-fit: contain;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    border: 1px solid var(--c-linea-fuerte);
+    border-radius: 2px;
+    transition: border-color 0.15s ease;
+}
+
+.imgsecundarias img:hover,
+.imgsecundarias img:focus-visible {
+    border-color: var(--c-verde);
+    outline: none;
+}
+
+/* ---------- Información ---------- */
+.info {
+    min-width: 0;
+}
+
+#categoria-dron {
+    display: inline-block;
+    margin: 0 0 0.9rem;
+    padding: 0.2em 0.6em;
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: var(--c-verde);
+    border: 1px solid var(--c-verde-dim);
+    border-radius: 2px;
+}
+
+#nombre-dron {
+    margin: 0 0 1.5rem;
+    font-family: var(--f-titulo);
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--c-texto);
+}
+
+#descripcion-dron {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.65;
+    color: var(--c-texto);
+}
+
+.info h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--f-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--c-tenue);
+}
+
+#proposito-dron {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--c-dim);
+}
+
+/* ---------- Botón de cotización ---------- */
+#enlace-cotizacion {
+    display: inline-block;
+    margin: 1.75rem 0 2.75rem;
+    text-decoration: none;
+}
+
+#enlace-cotizacion button {
+    padding: 1rem 1.6rem;
+    font-family: var(--f-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #0a0a0a;
+    background: var(--c-oro);
+    border: 0;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%);
+    transition: filter 0.15s ease;
+}
+
+#enlace-cotizacion:hover button {
+    filter: brightness(1.1);
+}
+
+#enlace-cotizacion:focus-visible {
+    outline: 2px solid var(--c-oro);
+    outline-offset: 4px;
+}
+
+/* ---------- Características técnicas ---------- */
+.info h2 {
+    margin: 0 0 0.75rem;
+    font-family: var(--f-titulo);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--c-texto);
+}
+
+.info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info td {
+    padding: 1rem 0;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(242, 183, 5, 0.22);
+}
+
+.info td:first-child {
+    padding-right: 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--c-texto);
+}
+
+.info td:last-child {
+    text-align: right;
+    font-family: var(--f-mono);
+    font-size: 0.88rem;
+    color: var(--c-verde);
+}
+
+/* ==========================================================
+   Sección 2: tres tarjetas
+   ========================================================== */
+main .seccion2 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.seccion2 .uno {
+    position: relative;
+    padding: 1.75rem 1.75rem 2rem;
+    background: var(--c-tarjeta);
+    border: 1px solid var(--c-linea);
+    border-radius: 2px;
+}
+
+/* Ícono de cada tarjeta (dibujado con CSS, no requiere HTML extra) */
+.seccion2 .uno::marker {
+    content: "";
+}
+
+.seccion2 .uno h2::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1.1rem;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+}
+
+.seccion2 .uno:nth-child(1) h2::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23f2b705' stroke-width='2'%3E%3Ccircle cx='16' cy='16' r='12'/%3E%3Ccircle cx='16' cy='16' r='7'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23f2b705'/%3E%3C/svg%3E");
+}
+
+.seccion2 .uno:nth-child(2) h2::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23f2b705' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='11' r='5'/%3E%3Cpath d='M3 27c0-5 4-8 9-8s9 3 9 8'/%3E%3Ccircle cx='23' cy='12' r='3.5'/%3E%3Cpath d='M23 19c3.5 0 6 2.2 6 6'/%3E%3C/svg%3E");
+}
+
+.seccion2 .uno:nth-child(3) h2::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23f2b705' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M5 4h22v19H13l-8 6z'/%3E%3C/svg%3E");
+}
+
+.seccion2 .uno h2 {
+    margin: 0 0 0.6rem;
+    font-family: var(--f-titulo);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--c-texto);
+}
+
+.seccion2 .uno p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--c-dim);
+}
+
+/* ---------- Volver al catálogo ---------- */
+#detalles-dron > p {
+    margin: 2.5rem 0 0;
+}
+
+#detalles-dron > p a {
+    font-family: var(--f-mono);
+    font-size: 0.85rem;
+    color: var(--c-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--c-linea-fuerte);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+#detalles-dron > p a:hover,
+#detalles-dron > p a:focus-visible {
+    color: var(--c-oro);
+    border-color: var(--c-oro);
+}
+
+/* ==========================================================
+   Responsivo
+   ========================================================== */
+@media (max-width: 960px) {
+    main .seccion1 {
+        grid-template-columns: 1fr;
+    }
+
+    main .seccion2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding-top: 3rem;
+    }
+
+    .imgsecundarias img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .imgsecundarias img,
+    #enlace-cotizacion button,
+    #detalles-dron > p a {
+        transition: none;
+    }
+}

@@ -1,0 +1,231 @@
+/* ==========================================================
+   TZAB-EK AERONÁUTICA · Servicios
+   Estilos de Servicios.html: título, cuadrícula de 4 columnas con las tarjetas
+   (las crea servicios.js) y la caja de cotización.
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+/* ---------- Variables locales ---------- */
+.servicios,
+#cotizacion {
+    --oro: #e0a820;
+    --oro-linea: rgba(224, 168, 32, 0.35);
+    --panel: #121212;
+    --texto: #f3efe6;
+    --texto-suave: #9a9588;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+main {
+    width: min(1120px, 100% - 48px);
+    margin-inline: auto;
+}
+
+/* ---------- Encabezado de sección ---------- */
+.servicios {
+    padding-top: 88px;
+}
+
+.seccion1 {
+    margin-bottom: 72px;
+}
+
+.seccion1 h1 {
+    margin: 0 0 20px;
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--texto);
+}
+
+.seccion1 p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--texto);
+}
+
+/* ---------- Cuadrícula de tarjetas ---------- */
+.seccion2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* Cada hijo directo generado por servicios.js es una tarjeta */
+.seccion2 > * {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 22px 30px;
+    background: var(--panel);
+    border: 1px solid rgba(224, 168, 32, 0.14);
+}
+
+/* Esquinas doradas: arriba-izquierda y abajo-derecha */
+.seccion2 > *::before,
+.seccion2 > *::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 0 solid var(--oro);
+    pointer-events: none;
+}
+
+.seccion2 > *::before {
+    top: -1px;
+    left: -1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+}
+
+.seccion2 > *::after {
+    right: -1px;
+    bottom: -1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+}
+
+/* Icono (primer hijo de la tarjeta) */
+.seccion2 > * > :first-child {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--oro);
+    stroke: var(--oro);
+}
+
+.seccion2 > * h2,
+.seccion2 > * h3,
+.seccion2 > * h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--texto);
+}
+
+.seccion2 > * p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: var(--texto-suave);
+}
+
+/* ---------- Cotización ---------- */
+#cotizacion {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 48px;
+    margin: 96px 0 96px;
+    padding: 56px;
+    background: var(--panel);
+    border: 1px solid var(--oro-linea);
+}
+
+#cotizacion::before,
+#cotizacion::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 0 solid var(--oro);
+}
+
+#cotizacion::before {
+    top: -1px;
+    left: -1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+}
+
+#cotizacion::after {
+    right: -1px;
+    bottom: -1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+}
+
+#cotizacion h2 {
+    grid-column: 1;
+    max-width: 14ch;
+    margin: 0 0 16px;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--texto);
+}
+
+#cotizacion p {
+    grid-column: 1;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--texto-suave);
+}
+
+#cotizacion a {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    text-decoration: none;
+}
+
+#cotizacion button {
+    padding: 14px 20px;
+    font: 500 0.82rem "Space Grotesk", system-ui, sans-serif;
+    color: #0a0a0a;
+    background: var(--oro);
+    border: 0;
+    cursor: pointer;
+    /* esquina inferior derecha cortada */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    transition: filter 0.2s;
+}
+
+#cotizacion button:hover {
+    filter: brightness(1.12);
+}
+
+#cotizacion button:focus-visible {
+    outline: 2px solid var(--texto);
+    outline-offset: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+    .seccion2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .servicios {
+        padding-top: 56px;
+    }
+
+    .seccion1 {
+        margin-bottom: 40px;
+    }
+
+    .seccion2 {
+        grid-template-columns: 1fr;
+    }
+
+    #cotizacion {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+    }
+
+    #cotizacion a {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 24px;
+    }
+}
