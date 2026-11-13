@@ -29,7 +29,7 @@ $conexion->close();
 </head>
 <body class="panel-fondo">
     <header class="panel-header">
-        <a class="admin-marca" href="../Index.html">TZAB-EK <span>AERONÁUTICA</span></a>
+        <a class="admin-marca" href="../index.html">TZAB-EK <span>AERONÁUTICA</span></a>
         <div class="panel-usuario">
             <span><?php echo escapar($_SESSION['admin_nombre']); ?></span>
             <a href="logout.php">Cerrar sesión</a>
@@ -87,8 +87,8 @@ $conexion->close();
 
         <section class="panel-accesos">
             <h2>Accesos rápidos</h2>
-            <a href="../Index.html">Ver sitio público</a>
-            <a href="../Catálogo.html">Consultar catálogo</a>
+            <a href="../index.html">Ver sitio público</a>
+            <a href="../catalogo.html">Consultar catálogo</a>
             <a href="logout.php">Cerrar sesión</a>
         </section>
     </main>

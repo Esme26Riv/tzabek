@@ -56,7 +56,7 @@ async function cargarDetallesDron() {
 
         // El botón lleva al formulario con el nombre del dron como asunto y su ID para guardarlo en la cotización.
         document.getElementById("enlace-cotizacion").href =
-            "Contáctanos.html?asunto=" + encodeURIComponent(dron.Nombre) +
+            "contactanos.html?asunto=" + encodeURIComponent(dron.Nombre) +
             "&idDron=" + encodeURIComponent(dron.IDDron);
 
         // Se oculta el mensaje de carga y se muestra la sección de detalles.

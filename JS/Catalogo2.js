@@ -1,5 +1,5 @@
 /* ==========================================================
-   Catalogo2.js · Catálogo completo (Catálogo.html): filtro por categoría y paginación.
+   Catalogo2.js · Catálogo completo (catalogo.html): filtro por categoría y paginación.
    Pide los datos a PHP/Catalogo.php y dibuja las tarjetas de drones.
    ========================================================== */
 

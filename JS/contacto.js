@@ -1,5 +1,5 @@
 /* ==========================================================
-   contacto.js · Formulario de Contáctanos.html: valida los campos y envía la cotización
+   contacto.js · Formulario de contactanos.html: valida los campos y envía la cotización
    a PHP/guardar_cotizacion.php sin recargar la página (fetch).
    ========================================================== */
 

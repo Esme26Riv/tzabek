@@ -55,7 +55,7 @@ $conexion->close();
 </head>
 <body class="admin-fondo">
     <main class="admin-contenedor">
-        <a class="admin-marca" href="../Index.html">TZAB-EK <span>AERONÁUTICA</span></a>
+        <a class="admin-marca" href="../index.html">TZAB-EK <span>AERONÁUTICA</span></a>
         <section class="admin-tarjeta">
             <p class="admin-etiqueta">ACCESO RESTRINGIDO</p>
             <h1>Iniciar sesión</h1>
@@ -75,7 +75,7 @@ $conexion->close();
 
                 <button class="admin-boton" type="submit">Entrar al panel</button>
             </form>
-            <a class="admin-volver" href="../Index.html">Volver al sitio público</a>
+            <a class="admin-volver" href="../index.html">Volver al sitio público</a>
         </section>
         <p class="admin-pie">Tzab-ek Aeronáutica · Área administrativa</p>
     </main>
