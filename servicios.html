@@ -1,18 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="CSS/STEM.css">
-    <link rel="stylesheet" href="CSS/Compartido.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/servicios.css">
+    <link rel="stylesheet" href="css/compartido.css">
     <title>Tzab-ek Aeronáutica</title>
-    <script src="JS/menu.js" defer></script>
+
+    <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
+    <script src="js/servicios.js" defer></script>
+    <script src="js/menu.js" defer></script>
 </head>
+
 <body>
-  <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
-  <header>
+     <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
+     <header>
         <a class="marca" href="index.html" aria-label="Tzab-ek Aeronáutica, inicio">
             <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
@@ -31,57 +36,46 @@
 
         <nav id="menu-principal" aria-label="Navegación principal">
             <a href="index.html" >Inicio</a>
-            <a href="Nosotros.html">Nosotros</a>
+            <a href="nosotros.html">Nosotros</a>
             <a href="catalogo.html">Catálogo</a>
-            <a href="Servicios.html">Servicios</a>
-            <a href="STEM.html" class="activo" aria-current="page">STEM</a>
-            <a href="FAQ.html">FAQ</a>
+            <a href="servicios.html" class="activo" aria-current="page">Servicios</a>
+            <a href="stem.html">STEM</a>
+            <a href="faq.html">FAQ</a>
             <a class="btn btn-oro nav-contacto" href="contactanos.html">Contáctanos</a>
         </nav>
 
         <a class="btn btn-oro" href="contactanos.html">Contáctanos</a>
     </header>
 
-  <!-- CONTENIDO PRINCIPAL: programas de educación STEM -->
-  <main>
-    <section>
-        <!-- Título de la página -->
-        <div class="seccion1">
-            <h2>Educación STEM</h2>
-            <p>Formando hoy a los innovadores del mañana.</p>
-        </div>
-        <!-- Programas STEM: imagen de la mascota Tzabi y tabla de actividades -->
-        <div class="seccion2">
-            <div class="imagen1">
-                <img src="img/Droncito Tzabi sobre el valle.png" alt="Tzabi, el droncito mascota de Tzab-ek, vuela sobre un valle junto a dos jóvenes pilotos">
+    <!-- CONTENIDO PRINCIPAL: servicios que ofrece la empresa (se cargan desde json/servicios.json) -->
+    <main>
+        <!-- Título y tarjetas de servicios -->
+        <section class="servicios">
+            <div class="seccion1">
+                <h1 id="titulo-servicios">Servicios</h1>
+                <p id="descripcion-servicios">
+                    Cargando información...
+                </p>
             </div>
-            <div class="texto1">
-                <h3>Programas STEM</h3>
-                <p>Talleres, cursos y experiencias educativas de ciencia, tecnología, ingeniería y matemáticas, con drones como herramienta de aprendizaje.</p>
-                <table>
-                    <tr><td>Talleres</td><td>Escuelas y universidades</td></tr>
-                    <tr><td>Cursos</td><td>Capacitación</td></tr>
-                    <tr><td>Visitas escolares</td><td>En nuestras instalaciones</td></tr>
-                    <tr><td>Proyectos</td><td>Competencias STEM</td></tr>
-                </table>
-            </div>
-        </div>
-        <!-- Llamado a la acción: más información -->
-        <div class="seccion3">
-            <div class="texto">
-                <h3>Únete a la comunidad STEM</h3>
-                <p>Descubre nuestro catálogo y los programas educativos disponibles.</p>
-            </div>
-            <div class="boton">
-                <a href="contactanos.html"><button>Más información</button></a>
-            </div>
-        </div>
-    </section>
-  </main>
 
-
-   <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
-   <footer>
+            <!-- Tarjetas de servicios: las genera servicios.js desde json/servicios.json -->
+            <div
+                class="seccion2"
+                id="lista-servicios"
+                aria-live="polite"
+            >
+                <p>Cargando servicios...</p>
+            </div>
+        </section>
+        <!-- Llamado a la acción: solicitar cotización -->
+        <section id="cotizacion">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Cuéntanos qué necesitas y te ayudamos a encontrar la mejor solución.</p>
+            <a href="contactanos.html"><button>Solicitar cotizacion</button></a>
+        </section>
+    </main>
+      <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
+      <footer>
         <!-- Parte superior del footer: 4 columnas -->
         <section class="footer1">
             <!-- Columna 1: logotipo y lema -->
@@ -103,11 +97,11 @@
             <div class="dos">
                 <h5>Explorar</h5>
                 <a href="index.html">Inicio</a>
-                <a href="Nosotros.html">Nosotros</a>
+                <a href="nosotros.html">Nosotros</a>
                 <a href="catalogo.html">Catálogo</a>
-                <a href="Servicios.html">Servicios</a>
-                <a href="STEM.html">STEM</a>
-                <a href="FAQ.html">FAQ</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="stem.html">STEM</a>
+                <a href="faq.html">FAQ</a>
             </div>
 
             <!-- Columna 3: redes sociales (iconos de Font Awesome) -->

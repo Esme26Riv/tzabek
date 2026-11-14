@@ -1,5 +1,5 @@
 /* ==========================================================
-   Drone.js · Dibuja con SVG las ilustraciones animadas del dron:
+   drone.js · Dibuja con SVG las ilustraciones animadas del dron:
    escena de vuelo con telemetría (inicio), radar (Nosotros/Inicio) e imágenes de relleno del catálogo.
    ========================================================== */
 

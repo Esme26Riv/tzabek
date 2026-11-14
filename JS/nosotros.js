@@ -1,5 +1,5 @@
 /* ==========================================================
-   nosotros.js · Carga el contenido de Nosotros.html desde Json/nosotros.json:
+   nosotros.js · Carga el contenido de nosotros.html desde json/nosotros.json:
    los dos párrafos y las tarjetas de Misión, Visión, Valores y Objetivos.
    ========================================================== */
 
@@ -36,12 +36,12 @@ async function cargarNosotros() {
 
     try {
         // 1) Pedir el archivo JSON al servidor.
-        const respuesta = await fetch("Json/nosotros.json");
+        const respuesta = await fetch("json/nosotros.json");
 
         // Si el servidor responde con error (404, 500...) se lanza una excepción que atrapa el catch.
         if (!respuesta.ok) {
             throw new Error(
-                "No se pudo cargar Json/nosotros.json. Código: " +
+                "No se pudo cargar json/nosotros.json. Código: " +
                 respuesta.status
             );
         }

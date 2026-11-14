@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// obtener_drones.php · Devuelve en JSON los drones del carrusel de Index.html:
+// obtener_drones.php · Devuelve en JSON los drones del carrusel de index.html:
 // todos los drones (máx. 12) con su primera imagen. Lo consume catalogo1.js.
 // ==========================================================
 
@@ -8,10 +8,10 @@
 header("Content-Type: application/json; charset=utf-8");
 
 // Importa la conexión a MySQL ($conexion).
-require_once __DIR__ . "/Conexion.php";
+require_once __DIR__ . "/conexion.php";
 
 // Consulta: trae cada dron y le une su primera imagen (LEFT JOIN).
-// COALESCE usa la imagen de la tabla IMAGEN y, si no hay, la columna Imagenes de DRON.
+// COALESCE usa la imagen de la tabla imagen y, si no hay, la columna Imagenes de dron.
 // LIMIT 12 = máximo de imágenes que tendrá el carrusel.
 $sql = "
     SELECT

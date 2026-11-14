@@ -1,6 +1,6 @@
 /* ==========================================================
    contacto.js · Formulario de contactanos.html: valida los campos y envía la cotización
-   a PHP/guardar_cotizacion.php sin recargar la página (fetch).
+   a php/guardar_cotizacion.php sin recargar la página (fetch).
    ========================================================== */
 
 "use strict";
@@ -106,7 +106,7 @@ function iniciarContacto() {
             });
 
             // Envío por POST al PHP, que guarda la cotización en la tabla COTIZACION.
-            const respuesta = await fetch("PHP/guardar_cotizacion.php", {
+            const respuesta = await fetch("php/guardar_cotizacion.php", {
                 method: "POST",
                 body: datosFormulario
             });

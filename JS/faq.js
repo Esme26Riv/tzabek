@@ -1,5 +1,5 @@
 /* ==========================================================
-   faq.js · Preguntas frecuentes (FAQ.html): carga Json/faq.json y construye el acordeón
+   faq.js · Preguntas frecuentes (faq.html): carga json/faq.json y construye el acordeón
    (cada pregunta es un botón que abre o cierra su respuesta).
    ========================================================== */
 
@@ -19,11 +19,11 @@ async function cargarPreguntas() {
 
     try {
         // 1) Pedir el archivo JSON al servidor.
-        const respuesta = await fetch("Json/faq.json");
+        const respuesta = await fetch("json/faq.json");
 
         if (!respuesta.ok) {
             throw new Error(
-                "No se pudo cargar Json/faq.json. Código: " +
+                "No se pudo cargar json/faq.json. Código: " +
                 respuesta.status
             );
         }

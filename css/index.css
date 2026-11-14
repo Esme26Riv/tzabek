@@ -1,0 +1,451 @@
+/* ==========================================================
+   TZAB-EK AERONÁUTICA · Inicio (index.html)
+   Hero, tarjetas de propósito, ¿quiénes somos?, carrusel de catálogo,
+   caja de cotización y animaciones del dron (dibujado por drone.js).
+   ========================================================== */
+
+/* ---------- Hero ---------- */
+#inicio{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:3rem;
+  padding-top:4rem;
+}
+.hero-texto h1{
+  font-size:clamp(2.6rem, 5.4vw, 4rem);
+  line-height:1.12;
+}
+.hero-texto h1 span{ display:block; color:var(--gold); }
+.hero-texto p{
+  color:var(--text-dim);
+  max-width:44ch;
+  margin-block:1.75rem 2rem;
+  font-size:1.05rem;
+}
+.acciones{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+/* ---------- Tecnología con propósito ---------- */
+#proposito h2{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  margin-bottom:1rem;
+}
+#proposito > p{
+  color:var(--text-dim);
+  max-width:56ch;
+  margin-bottom:2.5rem;
+}
+
+.tarjetas{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1.25rem;
+}
+.tarjeta{
+  position:relative;
+  background:var(--panel);
+  border:1px solid rgba(53,211,153,.14);
+  border-radius:var(--radius);
+  padding:1.5rem 1.4rem;
+}
+.tarjeta::before,
+.tarjeta::after,
+.tarjeta-dron::before,
+.tarjeta-dron::after,
+.cotizacion-caja::before,
+.cotizacion-caja::after{
+  content:"";
+  position:absolute;
+  width:16px; height:16px;
+  border:0 solid var(--gold);
+  pointer-events:none;
+}
+.tarjeta::before,
+.tarjeta-dron::before,
+.cotizacion-caja::before{
+  top:-1px; left:-1px;
+  border-top-width:2px;
+  border-left-width:2px;
+}
+.tarjeta::after,
+.tarjeta-dron::after,
+.cotizacion-caja::after{
+  bottom:-1px; right:-1px;
+  border-bottom-width:2px;
+  border-right-width:2px;
+}
+.tarjeta i{
+  display:block;
+  color:var(--gold);
+  font-size:1.35rem;
+  margin-bottom:1.1rem;
+}
+.tarjeta h5{ font-size:1.05rem; margin-bottom:.6rem; }
+.tarjeta p{ color:var(--text-faint); font-size:.92rem; }
+
+/* ---------- ¿Quiénes somos? ---------- */
+#somos{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  align-items:center;
+  gap:3rem;
+  padding-block:6rem;
+}
+.somos-visual{ display:flex; justify-content:center; }
+.somos-texto h2{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  margin-bottom:1.1rem;
+}
+.somos-texto h4{
+  font-weight:500;
+  font-size:1.1rem;
+  line-height:1.5;
+  margin-bottom:1.1rem;
+  max-width:46ch;
+}
+.somos-texto p{
+  color:var(--text-dim);
+  max-width:52ch;
+  margin-bottom:1.5rem;
+}
+
+/* ---------- Catálogo ---------- */
+.seccion1{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:2.5rem;
+}
+#catalogo h2{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  margin-bottom:.6rem;
+}
+.seccion1 p{ color:var(--text-dim); }
+
+
+/* ---------- Carrusel del catálogo ---------- */
+
+/* Contenedor en 3 columnas: flecha izquierda | pista | flecha derecha */
+.carrusel{
+  display:grid;
+  grid-template-columns:auto minmax(0, 1fr) auto;
+  align-items:center;
+  gap:.75rem;
+}
+
+/* Pista: fila horizontal de tarjetas con desplazamiento lateral.
+   scroll-snap hace que cada tarjeta se detenga alineada al borde.
+   --por-vista = cuántas tarjetas se ven a la vez (cambia en los media queries). */
+.carrusel-pista{
+  --por-vista:3;
+  --espacio:1.5rem;
+  display:flex;
+  gap:var(--espacio);
+  padding:4px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding:4px;
+  scroll-behavior:smooth;
+  overscroll-behavior-x:contain;
+  scrollbar-width:none;
+}
+.carrusel-pista::-webkit-scrollbar{ display:none; }
+.carrusel-pista:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+/* Cada tarjeta ocupa 1/--por-vista del ancho, descontando los espacios entre tarjetas */
+.carrusel-pista > .tarjeta-dron{
+  flex:0 0 calc((100% - (var(--por-vista) - 1) * var(--espacio)) / var(--por-vista));
+  scroll-snap-align:start;
+}
+
+/* Flechas anterior / siguiente */
+.carrusel-btn{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  color:var(--gold);
+  background:var(--panel);
+  border:1px solid var(--gold-line);
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.carrusel-btn:hover{ background:var(--gold); color:#0a0a0a; border-color:var(--gold); }
+.carrusel-btn:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+.carrusel-btn[hidden]{ display:none; }
+
+/* Tarjetas de dron (dentro de la pista) */
+#contenedor-drones .tarjeta-dron {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+#contenedor-drones .tarjeta-dron:hover {
+    text-decoration: none;
+}
+
+#contenedor-drones .tarjeta-dron:focus-visible {
+    outline: 3px solid #D6A343;
+    outline-offset: 4px;
+}
+.tarjeta-dron{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.25rem;
+}
+
+.imagen-dron,
+.imagen-no-disponible{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  object-position:center top; /* los carteles se recortan desde arriba (nombre + dron) */
+  border:1px solid var(--line);
+  background-color:#0d0d0d;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:20px 20px;
+}
+.imagen-no-disponible{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text-faint);
+  font-size:.85rem;
+}
+.imagen-no-disponible .drone-svg{ width:82%; opacity:.6; }
+
+.contenido-tarjeta{ padding:1.25rem 0 .25rem; }
+
+.categoria-dron{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--green);
+  border:1px solid var(--green-dim);
+  border-radius:2px;
+  padding:.2em .6em;
+  margin-bottom:.9rem;
+}
+.contenido-tarjeta h3{ font-size:1.2rem; margin-bottom:.5rem; }
+.descripcion-dron{
+  color:var(--text-faint);
+  font-size:.9rem;
+  /* máximo 2 líneas para que todas las tarjetas midan igual */
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.mensaje-catalogo{
+  flex:0 0 100%;
+  text-align:center;
+  color:var(--text-faint);
+  padding:2.5rem 1rem;
+  border:1px dashed var(--line-strong);
+  border-radius:var(--radius);
+}
+.mensaje-error{ color:#e8674a; }
+
+/* ---------- Cotización ---------- */
+.cotizacion-caja{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+  background:var(--panel);
+  border:1px solid var(--gold-line);
+  border-radius:var(--radius);
+  padding:3.5rem clamp(1.5rem, 5vw, 4rem);
+}
+.cotizacion-caja::before,
+.cotizacion-caja::after{ width:20px; height:20px; }
+.cotizacion-texto h2{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  max-width:14ch;
+}
+.cotizacion-texto p{
+  color:var(--text-dim);
+  margin-top:1rem;
+  max-width:44ch;
+}
+
+
+/* ============================================================
+   Dron (drone.js)
+   .drone-stage[data-drone="vuelo"]  → dron con movimiento + telemetría
+   .drone-stage[data-drone="radar"]  → radar con barrido
+   ============================================================ */
+
+.drone-stage{
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:420px;
+  margin-inline:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle closest-side, rgba(242,183,5,.10), transparent 75%);
+}
+
+/* anillos (hero) */
+.drone-stage::before,
+.drone-stage::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+.drone-stage::before{
+  inset:0;
+  border:1px dashed var(--gold-line);
+}
+.drone-stage::after{
+  inset:12.5%;
+  border:1px solid rgba(53,211,153,.4);
+}
+
+/* cruz central */
+.drone-stage .cruz{ position:absolute; inset:0; }
+.drone-stage .cruz::before,
+.drone-stage .cruz::after{
+  content:"";
+  position:absolute;
+  background:var(--line);
+}
+.drone-stage .cruz::before{ left:0; right:0; top:50%; height:1px; }
+.drone-stage .cruz::after{ top:0; bottom:0; left:50%; width:1px; }
+
+/* SVG del dron */
+.drone-svg{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  color:var(--gold);
+  overflow:visible;
+}
+.drone-svg .cuerpo{ fill:#0e0e0e; }
+.drone-svg .punto{ fill:currentColor; stroke:none; }
+.drone-svg .aro{ opacity:.7; }
+
+.drone-stage .drone-svg{
+  position:relative;
+  z-index:2;
+  width:80%;
+  height:auto;
+  filter:drop-shadow(0 0 14px rgba(242,183,5,.25));
+}
+.drone-stage .drone-svg.float{ animation:drone-float 4.5s ease-in-out infinite; }
+
+@keyframes drone-float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+.drone-svg .rotor{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:rotor-spin .6s linear infinite;
+}
+.drone-svg .rotor.quieto{ animation:none; }
+
+@keyframes rotor-spin{ to{ transform:rotate(360deg); } }
+
+/* ---- Variante radar ---- */
+.drone-stage.radar{
+  overflow:hidden; /* el barrido giratorio no debe sobresalir y causar scroll horizontal */
+  max-width:400px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:
+    repeating-radial-gradient(circle closest-side, transparent 0 19.2%, rgba(53,211,153,.28) 19.2% 20%),
+    radial-gradient(circle closest-side, #1b1e1c, #131413);
+}
+.drone-stage.radar::before{ border:1px solid rgba(53,211,153,.28); inset:0; }
+.drone-stage.radar::after{ display:none; }
+.drone-stage.radar .drone-svg{ width:80%; filter:none; }
+
+.drone-stage .barrido{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:conic-gradient(from 0deg, rgba(53,211,153,.38), transparent 26%);
+  animation:radar-sweep 6s linear infinite;
+  mix-blend-mode:screen;
+}
+@keyframes radar-sweep{ to{ transform:rotate(360deg); } }
+
+/* ---- Telemetría (hero) ---- */
+.drone-telemetry{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  color:var(--text-faint);
+  text-transform:uppercase;
+}
+.drone-telemetry > div{ position:absolute; line-height:1.3; }
+.drone-telemetry span{
+  display:block;
+  margin-top:.25rem;
+  font-size:.8rem;
+  text-transform:none;
+}
+.t-pos{ top:0; left:0; }
+.t-alt{ top:0; right:0; text-align:right; }
+.t-bat{ bottom:0; left:0; }
+.t-senal{ bottom:0; right:0; text-align:right; }
+
+.t-pos span, .t-alt span{ color:var(--gold); }
+.t-bat span, .t-senal span{ color:var(--green); }
+.t-senal span::before{
+  content:"";
+  display:inline-block;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:var(--green);
+  margin-right:.4em;
+  box-shadow:0 0 6px var(--green);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  #inicio,
+  #somos{ grid-template-columns:1fr; }
+
+  .tarjetas{ grid-template-columns:repeat(2, 1fr); }
+  .carrusel-pista{ --por-vista:2; }
+  footer .footer1{ grid-template-columns:1fr 1fr; }
+  .drone-stage{ margin-top:1rem; }
+}
+
+@media (max-width:560px){
+  .tarjetas,
+  footer .footer1{ grid-template-columns:1fr; }
+  .seccion1{ flex-direction:column; align-items:flex-start; }
+  .carrusel-pista{ --por-vista:1; }
+  .carrusel{ gap:.4rem; }
+  .carrusel-btn{ width:36px; height:36px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .drone-stage .drone-svg.float,
+  .drone-svg .rotor,
+  .drone-stage .barrido{ animation:none; }
+  .carrusel-pista{ scroll-behavior:auto; }
+}

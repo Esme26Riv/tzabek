@@ -1,13 +1,13 @@
 <?php
 // ==========================================================
 // obtener_dron.php · Devuelve en JSON los datos de UN dron y sus imágenes.
-// Lo consume detalles-dron.js (Dron.html?id=...).
+// Lo consume detalles-dron.js (dron.html?id=...).
 // ==========================================================
 // La respuesta será JSON en UTF-8.
 header("Content-Type: application/json; charset=utf-8");
 
 // Importa la conexión a MySQL ($conexion).
-require_once __DIR__ . "/Conexion.php";
+require_once __DIR__ . "/conexion.php";
 
 // Lee y valida el parámetro ?id= de la URL (debe ser un entero).
 $idDron = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
@@ -40,7 +40,7 @@ try {
             PublicoObjetivo,
             HistoriaModelo,
             Imagenes
-         FROM DRON
+         FROM dron
          WHERE IDDron = ?"
     );
 
@@ -63,10 +63,10 @@ try {
         exit;
     }
 
-    // Busca todas las imágenes del dron en la tabla IMAGEN.
+    // Busca todas las imágenes del dron en la tabla imagen.
     $consultaImagenes = $conexion->prepare(
         "SELECT NombreImagen
-         FROM IMAGEN
+         FROM imagen
          WHERE IDDron = ?
          ORDER BY IDImagen ASC"
     );
@@ -83,7 +83,7 @@ try {
         }
     }
 
-    // Si no hay imágenes en IMAGEN, usa la columna Imagenes de la tabla DRON como respaldo.
+    // Si no hay imágenes en imagen, usa la columna Imagenes de la tabla dron como respaldo.
     if (count($imagenes) === 0 && !empty($dron["Imagenes"])) {
         $imagenes[] = $dron["Imagenes"];
     }

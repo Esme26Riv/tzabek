@@ -1,5 +1,5 @@
 /* ============================================================
-   Tzab-ek Aeronáutica — Compartido.css
+   Tzab-ek Aeronáutica — compartido.css
    Estilos que usan TODAS las páginas: variables, reset, botones, header y footer.
    ============================================================ */
 
@@ -221,7 +221,7 @@ footer .tres a i {
 /* ============================================================
    MENÚ HAMBURGUESA + RESPONSIVO COMPARTIDO (todas las páginas)
    El botón .menu-toggle y el enlace .nav-contacto solo se ven en pantallas chicas.
-   JS/menu.js agrega/quita la clase .abierto en el <nav>.
+   js/menu.js agrega/quita la clase .abierto en el <nav>.
    ============================================================ */
 .menu-toggle,
 header nav a.nav-contacto{ display:none; }

@@ -1,5 +1,5 @@
 /* ==========================================================
-   servicios.js · Carga Servicios.html desde Json/servicios.json:
+   servicios.js · Carga servicios.html desde json/servicios.json:
    título, descripción y una tarjeta por cada servicio (con su icono SVG).
    ========================================================== */
 
@@ -59,11 +59,11 @@ async function cargarServicios() {
 
     try {
         // 1) Pedir el archivo JSON al servidor.
-        const respuesta = await fetch("Json/servicios.json");
+        const respuesta = await fetch("json/servicios.json");
 
         if (!respuesta.ok) {
             throw new Error(
-                "No se pudo cargar Json/servicios.json. Código: " +
+                "No se pudo cargar json/servicios.json. Código: " +
                 respuesta.status
             );
         }

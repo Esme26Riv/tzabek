@@ -36,11 +36,11 @@ if ($metodo !== 'GET') {
     }
 }
 
-require_once __DIR__ . '/../../PHP/Conexion.php';
+require_once __DIR__ . '/../../php/conexion.php';
 
 try {
     if ($metodo === 'GET') {
-        $consulta = $conexion->query('SELECT IDEmpleado, Nombre, Rango, Correo FROM EMPLEADO ORDER BY Nombre ASC');
+        $consulta = $conexion->query('SELECT IDEmpleado, Nombre, Rango, Correo FROM empleado ORDER BY Nombre ASC');
         $empleados = [];
         while ($fila = $consulta->fetch_assoc()) {
             $empleados[] = [
@@ -62,14 +62,14 @@ try {
             responder_json(422, ['exito' => false, 'mensaje' => 'Indica un empleado y un puesto válido (máximo 100 caracteres).']);
         }
 
-        $consulta = $conexion->prepare('UPDATE EMPLEADO SET Rango = ? WHERE IDEmpleado = ?');
+        $consulta = $conexion->prepare('UPDATE empleado SET Rango = ? WHERE IDEmpleado = ?');
         $consulta->bind_param('si', $rango, $id);
         $consulta->execute();
         $afectadas = $consulta->affected_rows;
         $consulta->close();
 
         if ($afectadas === 0) {
-            $verificar = $conexion->prepare('SELECT IDEmpleado FROM EMPLEADO WHERE IDEmpleado = ? LIMIT 1');
+            $verificar = $conexion->prepare('SELECT IDEmpleado FROM empleado WHERE IDEmpleado = ? LIMIT 1');
             $verificar->bind_param('i', $id);
             $verificar->execute();
             $existe = $verificar->get_result()->num_rows === 1;
@@ -107,7 +107,7 @@ try {
     if ($hash === false) {
         throw new RuntimeException('No fue posible generar el hash de la contraseña.');
     }
-    $consulta = $conexion->prepare('INSERT INTO EMPLEADO (Nombre, Rango, Correo, Contrasena) VALUES (?, ?, ?, ?)');
+    $consulta = $conexion->prepare('INSERT INTO empleado (Nombre, Rango, Correo, Contrasena) VALUES (?, ?, ?, ?)');
     $consulta->bind_param('ssss', $nombre, $rango, $correo, $hash);
     $consulta->execute();
     $id = (int)$conexion->insert_id;

@@ -1,14 +1,14 @@
 <?php
 // ==========================================================
 // guardar_cotizacion.php · Recibe por POST el formulario de contacto, valida los datos
-// y los guarda en la tabla COTIZACION. Responde JSON {exito, mensaje}. Lo usa contacto.js.
+// y los guarda en la tabla cotizacion. Responde JSON {exito, mensaje}. Lo usa contacto.js.
 // ==========================================================
 // La respuesta será JSON en UTF-8 y no se guarda en caché.
 header("Content-Type: application/json; charset=utf-8");
 header("Cache-Control: no-store");
 
 // Importa la conexión a MySQL ($conexion).
-require_once __DIR__ . "/Conexion.php";
+require_once __DIR__ . "/conexion.php";
 
 // responder(): envía una respuesta JSON con su código HTTP y detiene el script.
 function responder($codigo, $mensaje, $exito = false) {
@@ -84,7 +84,7 @@ try {
 
         $consultaDron = $conexion->prepare(
             "SELECT IDDron
-             FROM DRON
+             FROM dron
              WHERE IDDron = ?"
         );
 
@@ -105,7 +105,7 @@ try {
 
     // Guardar la cotización.
     $consulta = $conexion->prepare(
-        "INSERT INTO COTIZACION
+        "INSERT INTO cotizacion
             (IDDron, Asunto, Nombre, Correo, Telefono, Empresa, Ayuda)
          VALUES (?, ?, ?, ?, ?, ?, ?)"
     );

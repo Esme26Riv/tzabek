@@ -1,0 +1,48 @@
+{
+  "seccion1": {
+    "titulo": "Servicios",
+    "descripcion": "Soluciones a la medida de tus necesidades."
+  },
+  "servicios": [
+    {
+      "icono": "camera",
+      "titulo": "Captura de datos",
+      "descripcion": "Imágenes y video de alta resolución para análisis y mapeo."
+    },
+    {
+      "icono": "scan",
+      "titulo": "Inspección y monitoreo",
+      "descripcion": "Revisión de infraestructura, territorios y proyectos industriales."
+    },
+    {
+      "icono": "leaf",
+      "titulo": "Agricultura de precisión",
+      "descripcion": "Monitoreo de cultivos, fumigación y análisis de suelo."
+    },
+    {
+      "icono": "lightbulb",
+      "titulo": "Consultoría y desarrollo",
+      "descripcion": "Soluciones con drones a la medida de tu proyecto."
+    },
+    {
+      "icono": "key",
+      "titulo": "Renta de drones",
+      "descripcion": "Equipos disponibles por proyecto o por periodo."
+    },
+    {
+      "icono": "heart",
+      "titulo": "Soluciones personalizadas",
+      "descripcion": "Adaptamos la tecnología a tu necesidad específica."
+    },
+    {
+      "icono": "shopping-cart",
+      "titulo": "Venta de drones",
+      "descripcion": "Equipos de nuestro catálogo con asesoría para elegir."
+    },
+    {
+      "icono": "headphones",
+      "titulo": "Soporte técnico",
+      "descripcion": "Atención para dudas y fallas relacionadas con tu equipo."
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 <?php
 // ==========================================================
-// Catalogo.php · Devuelve en JSON una página del catálogo completo (9 drones),
-// la lista de categorías y los datos de paginación. Lo consume Catalogo2.js.
+// catalogo.php · Devuelve en JSON una página del catálogo completo (9 drones),
+// la lista de categorías y los datos de paginación. Lo consume catalogo2.js.
 // ==========================================================
 // La respuesta será JSON en UTF-8.
 header("Content-Type: application/json; charset=utf-8");
 
 // Importa la conexión a MySQL ($conexion).
-require_once __DIR__ . "/Conexion.php";
+require_once __DIR__ . "/conexion.php";
 
 // Página solicitada (?pagina=2). Si no es válida, se usa la 1.
 $pagina = filter_input(INPUT_GET, "pagina", FILTER_VALIDATE_INT);
@@ -27,7 +27,7 @@ try {
 
     $consultaCategorias = $conexion->query(
         "SELECT DISTINCT Categoria
-         FROM DRON
+         FROM dron
          WHERE Categoria IS NOT NULL AND Categoria <> ''
          ORDER BY Categoria ASC"
     );
@@ -40,13 +40,13 @@ try {
     if ($categoria !== "") {
         $consultaTotal = $conexion->prepare(
             "SELECT COUNT(*) AS total
-             FROM DRON
+             FROM dron
              WHERE Categoria = ?"
         );
         $consultaTotal->bind_param("s", $categoria);
     } else {
         $consultaTotal = $conexion->prepare(
-            "SELECT COUNT(*) AS total FROM DRON"
+            "SELECT COUNT(*) AS total FROM dron"
         );
     }
 
@@ -75,13 +75,13 @@ try {
                 NULLIF(i.NombreImagen, ''),
                 NULLIF(d.Imagenes, '')
             ) AS Imagen
-        FROM DRON AS d
+        FROM dron AS d
         LEFT JOIN (
             SELECT IDDron, MIN(IDImagen) AS IDImagen
-            FROM IMAGEN
+            FROM imagen
             GROUP BY IDDron
         ) AS primera ON primera.IDDron = d.IDDron
-        LEFT JOIN IMAGEN AS i ON i.IDImagen = primera.IDImagen
+        LEFT JOIN imagen AS i ON i.IDImagen = primera.IDImagen
     ";
 
     if ($categoria !== "") {

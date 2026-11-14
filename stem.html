@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="CSS/Compartido.css">
-  <link rel="stylesheet" href="CSS/FAQ.css">
-  <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
-  <script src="JS/faq.js" defer></script>
-  <title>Preguntas frecuentes | Tzab-ek Aeronáutica</title>
-    <script src="JS/menu.js" defer></script>
+    <link rel="stylesheet" href="css/stem.css">
+    <link rel="stylesheet" href="css/compartido.css">
+    <title>Tzab-ek Aeronáutica</title>
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
   <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
@@ -32,35 +30,58 @@
         </button>
 
         <nav id="menu-principal" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-            <a href="Nosotros.html">Nosotros</a>
+            <a href="index.html" >Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
             <a href="catalogo.html">Catálogo</a>
-            <a href="Servicios.html">Servicios</a>
-            <a href="STEM.html">STEM</a>
-            <a href="FAQ.html" class="activo" aria-current="page">FAQ</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="stem.html" class="activo" aria-current="page">STEM</a>
+            <a href="faq.html">FAQ</a>
             <a class="btn btn-oro nav-contacto" href="contactanos.html">Contáctanos</a>
         </nav>
 
         <a class="btn btn-oro" href="contactanos.html">Contáctanos</a>
     </header>
 
-  <!-- CONTENIDO PRINCIPAL: preguntas frecuentes en acordeón -->
+  <!-- CONTENIDO PRINCIPAL: programas de educación STEM -->
   <main>
     <section>
         <!-- Título de la página -->
         <div class="seccion1">
-            <h2>Preguntas frecuentes</h2>
-            <p>Las dudas más comunes sobre productos, servicios y contacto.</p>
+            <h2>Educación STEM</h2>
+            <p>Formando hoy a los innovadores del mañana.</p>
         </div>
-        <!-- Lista de preguntas (acordeón) generada por faq.js desde Json/faq.json -->
-        <div class="seccion2" id="lista-preguntas">
-            <p>Cargando preguntas frecuentes...</p>
+        <!-- Programas STEM: imagen de la mascota Tzabi y tabla de actividades -->
+        <div class="seccion2">
+            <div class="imagen1">
+                <img src="img/droncito_tzabi_sobre_el_valle.png" alt="Tzabi, el droncito mascota de Tzab-ek, vuela sobre un valle junto a dos jóvenes pilotos">
+            </div>
+            <div class="texto1">
+                <h3>Programas STEM</h3>
+                <p>Talleres, cursos y experiencias educativas de ciencia, tecnología, ingeniería y matemáticas, con drones como herramienta de aprendizaje.</p>
+                <table>
+                    <tr><td>Talleres</td><td>Escuelas y universidades</td></tr>
+                    <tr><td>Cursos</td><td>Capacitación</td></tr>
+                    <tr><td>Visitas escolares</td><td>En nuestras instalaciones</td></tr>
+                    <tr><td>Proyectos</td><td>Competencias STEM</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- Llamado a la acción: más información -->
+        <div class="seccion3">
+            <div class="texto">
+                <h3>Únete a la comunidad STEM</h3>
+                <p>Descubre nuestro catálogo y los programas educativos disponibles.</p>
+            </div>
+            <div class="boton">
+                <a href="contactanos.html"><button>Más información</button></a>
+            </div>
         </div>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
-  <footer>
+
+   <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
+   <footer>
         <!-- Parte superior del footer: 4 columnas -->
         <section class="footer1">
             <!-- Columna 1: logotipo y lema -->
@@ -82,32 +103,40 @@
             <div class="dos">
                 <h5>Explorar</h5>
                 <a href="index.html">Inicio</a>
-                <a href="Nosotros.html">Nosotros</a>
+                <a href="nosotros.html">Nosotros</a>
                 <a href="catalogo.html">Catálogo</a>
-                <a href="Servicios.html">Servicios</a>
-                <a href="STEM.html">STEM</a>
-                <a href="FAQ.html">FAQ</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="stem.html">STEM</a>
+                <a href="faq.html">FAQ</a>
             </div>
 
             <!-- Columna 3: redes sociales (iconos de Font Awesome) -->
             <div class="tres">
                 <h5>Síguenos</h5>
-                <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/tzabekmx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
+                <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i> 
+    </a>
+
+    <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw" target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i> 
+    </a>
+
+    <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+       aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
             </div>
 
             <!-- Columna 4: datos de contacto y botón de cotización -->
             <div class="cuatro">
                 <h5>Contacto</h5>
-                <p>Ciudad Juárez, Chihuahua</p>
-                <p>Teléfono y correo por confirmar</p>
+                <p>Dirección:
+                    Del Ejido 4347, Los Nogales, 32350 Juárez, Chih.</p>
+                <p>Teléfono: 656 837 837 88
+                    WhatsApp: 656 829 838 92
+                    Correo: enlace@tzab-ek.com</p>
                 <a class="cta-footer" href="contactanos.html">Solicitar cotización</a>
             </div>
         </section>

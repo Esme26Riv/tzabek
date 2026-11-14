@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/../PHP/Conexion.php';
+require_once __DIR__ . '/../php/conexion.php';
 
 if (!empty($_SESSION['admin_id'])) {
     header('Location: panel.php');
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL) || $contrasena === '') {
         $error = 'Verifica tu correo y contraseña.';
     } else {
-        $consulta = $conexion->prepare('SELECT IDAdmin, Nombre, Correo, Contrasena FROM ADMIN WHERE Correo = ? LIMIT 1');
+        $consulta = $conexion->prepare('SELECT IDAdmin, Nombre, Correo, Contrasena FROM admin WHERE Correo = ? LIMIT 1');
         $consulta->bind_param('s', $correo);
         $consulta->execute();
         $resultado = $consulta->get_result();

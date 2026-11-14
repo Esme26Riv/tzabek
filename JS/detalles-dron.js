@@ -1,6 +1,6 @@
 /* ==========================================================
-   detalles-dron.js · Ficha de un dron (Dron.html): lee el ?id= de la URL, pide los datos
-   a PHP/obtener_dron.php y llena la página (textos, galería y botón de cotización).
+   detalles-dron.js · Ficha de un dron (dron.html): lee el ?id= de la URL, pide los datos
+   a php/obtener_dron.php y llena la página (textos, galería y botón de cotización).
    ========================================================== */
 
 "use strict";
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", cargarDetallesDron);
 /* cargarDetallesDron(): obtiene el dron indicado en la URL y rellena toda la ficha. */
 async function cargarDetallesDron() {
     const parametros = new URLSearchParams(window.location.search);
-    // Lee el ID del dron desde la URL (Dron.html?id=3).
+    // Lee el ID del dron desde la URL (dron.html?id=3).
     const identificador = parametros.get("id");
     const mensaje = document.getElementById("mensaje-dron");
     const seccion = document.getElementById("detalles-dron");
@@ -25,7 +25,7 @@ async function cargarDetallesDron() {
     try {
         // Pide al PHP los datos del dron en formato JSON.
         const respuesta = await fetch(
-            "PHP/obtener_dron.php?id=" + encodeURIComponent(identificador)
+            "php/obtener_dron.php?id=" + encodeURIComponent(identificador)
         );
 
         const dron = await respuesta.json();

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/auth.php';
 requerir_admin();
-require_once __DIR__ . '/../PHP/Conexion.php';
+require_once __DIR__ . '/../php/conexion.php';
 
 $totalDrones = 0;
 $totalCotizaciones = 0;
@@ -11,11 +11,11 @@ if (empty($_SESSION['csrf_admin'])) {
     $_SESSION['csrf_admin'] = bin2hex(random_bytes(32));
 }
 
-$resultado = $conexion->query('SELECT COUNT(*) AS total FROM DRON');
+$resultado = $conexion->query('SELECT COUNT(*) AS total FROM dron');
 $totalDrones = (int)$resultado->fetch_assoc()['total']; $resultado->close();
-$resultado = $conexion->query('SELECT COUNT(*) AS total FROM COTIZACION');
+$resultado = $conexion->query('SELECT COUNT(*) AS total FROM cotizacion');
 $totalCotizaciones = (int)$resultado->fetch_assoc()['total']; $resultado->close();
-$resultado = $conexion->query('SELECT COUNT(*) AS total FROM EMPLEADO');
+$resultado = $conexion->query('SELECT COUNT(*) AS total FROM empleado');
 $totalEmpleados = (int)$resultado->fetch_assoc()['total']; $resultado->close();
 $conexion->close();
 ?>

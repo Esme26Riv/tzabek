@@ -1,6 +1,6 @@
 <?php
 // ==========================================================
-// Conexion.php · Conexión a la base de datos MySQL.
+// conexion.php · Conexión a la base de datos MySQL.
 // Todos los demás PHP la importan con require_once y usan la variable $conexion.
 // ==========================================================
 // Datos de conexión (en XAMPP: servidor local, usuario root y sin contraseña).

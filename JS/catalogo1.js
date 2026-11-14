@@ -1,7 +1,7 @@
 /* ==========================================================
    catalogo1.js · Carrusel de drones de la página de inicio
-   1) Pide a PHP/obtener_drones.php la lista de drones (JSON).
-   2) Crea una tarjeta (enlace a Dron.html?id=...) por cada dron.
+   1) Pide a php/obtener_drones.php la lista de drones (JSON).
+   2) Crea una tarjeta (enlace a dron.html?id=...) por cada dron.
    3) Controla el carrusel: flechas, avance automático y pausa.
    ========================================================== */
 
@@ -31,7 +31,7 @@ async function cargarDrones() {
 
     try {
         // Petición al servidor (fetch es asíncrono, por eso se usa await).
-        const respuesta = await fetch("PHP/obtener_drones.php");
+        const respuesta = await fetch("php/obtener_drones.php");
 
         // Si el servidor responde con error (404, 500...) se salta al catch.
         if (!respuesta.ok) {
@@ -69,14 +69,14 @@ async function cargarDrones() {
                 return;
             }
 
-            // Toda la tarjeta es un enlace a la ficha del dron (Dron.html?id=3).
+            // Toda la tarjeta es un enlace a la ficha del dron (dron.html?id=3).
             const tarjeta = document.createElement("a");
 
             tarjeta.className = "tarjeta-dron";
 
             // encodeURIComponent evita que caracteres raros rompan la URL.
             tarjeta.href =
-                "Dron.html?id=" + encodeURIComponent(dron.IDDron);
+                "dron.html?id=" + encodeURIComponent(dron.IDDron);
 
             tarjeta.setAttribute(
                 "aria-label",
@@ -91,7 +91,7 @@ async function cargarDrones() {
             imagen.loading = "lazy";
 
             // Si la imagen no se puede cargar, se reemplaza por un recuadro
-            // (Drone.js lo rellena después con una ilustración de dron).
+            // (drone.js lo rellena después con una ilustración de dron).
             imagen.addEventListener("error", function () {
                 const marcador = document.createElement("div");
 

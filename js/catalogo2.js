@@ -1,6 +1,6 @@
 /* ==========================================================
-   Catalogo2.js · Catálogo completo (catalogo.html): filtro por categoría y paginación.
-   Pide los datos a PHP/Catalogo.php y dibuja las tarjetas de drones.
+   catalogo2.js · Catálogo completo (catalogo.html): filtro por categoría y paginación.
+   Pide los datos a php/catalogo.php y dibuja las tarjetas de drones.
    ========================================================== */
 
 "use strict";
@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", iniciarCatalogo);
 
 // Estado del catálogo: drones por página, página actual y categoría elegida ("" = todas).
-// Debe coincidir con $dronesPorPagina de PHP/Catalogo.php.
+// Debe coincidir con $dronesPorPagina de php/catalogo.php.
 const dronesPorPagina = 9;
 let paginaActual = 1;
 let categoriaActual = "";
@@ -67,7 +67,7 @@ async function cargarDrones() {
 
     try {
         const respuesta = await fetch(
-            "PHP/Catalogo.php?" + parametros.toString()
+            "php/catalogo.php?" + parametros.toString()
         );
 
         if (!respuesta.ok) {
@@ -109,7 +109,7 @@ async function cargarDrones() {
 }
 
 /* crearTarjeta(): arma el HTML de una tarjeta (imagen, categoría, nombre y descripción)
-   dentro de un enlace a Dron.html?id=... */
+   dentro de un enlace a dron.html?id=... */
 function crearTarjeta(dron, indice) {
     const tarjeta = document.createElement("article");
     const enlace = document.createElement("a");
@@ -121,7 +121,7 @@ function crearTarjeta(dron, indice) {
     categoria.className = "categoria-dron";
     descripcion.className = "descripcion-dron";
 
-    enlace.href = "Dron.html?id=" + encodeURIComponent(dron.IDDron);
+    enlace.href = "dron.html?id=" + encodeURIComponent(dron.IDDron);
     enlace.setAttribute(
         "aria-label",
         "Ver detalles de " + (dron.Nombre || "este dron")
@@ -162,7 +162,7 @@ function crearTarjeta(dron, indice) {
     return tarjeta;
 }
 
-/* Ilustración de dron cuando no hay imagen (usa drone() de Drone.js) */
+/* Ilustración de dron cuando no hay imagen (usa drone() de drone.js) */
 function crearImagenVacia(indice) {
     const caja = document.createElement("div");
     caja.className = "imagen-no-disponible";
