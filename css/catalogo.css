@@ -3,7 +3,6 @@
    (el header y el footer viven en compartido.css)
    ========================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 main {
     --c-oro: #f2b705;
@@ -16,9 +15,9 @@ main {
     --c-dim: #aaa9a4;
     --c-tenue: #7a7a76;
 
-    --f-titulo: var(--font-head, "Space Grotesk", "Segoe UI", sans-serif);
-    --f-texto: var(--font-body, "Space Grotesk", "Segoe UI", sans-serif);
-    --f-mono: var(--font-mono, "JetBrains Mono", "Courier New", monospace);
+    --f-titulo: var(--font-head, "Chakra Petch", "Segoe UI", sans-serif);
+    --f-texto: var(--font-body, "IBM Plex Sans", "Segoe UI", sans-serif);
+    --f-mono: var(--font-mono, "IBM Plex Mono", "Courier New", monospace);
 }
 
 body main > section {

@@ -2,7 +2,6 @@
    TZAB-EK AERONÁUTICA · Página Nosotros
    ========================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap");
 
 :root {
     --bg: #0a0a0a;
@@ -14,7 +13,7 @@
     --verde-radar: #1f8a62;
 
     --fuente-titulo: "Chakra Petch", system-ui, sans-serif;
-    --fuente-texto: "Barlow", system-ui, sans-serif;
+    --fuente-texto: "IBM Plex Sans", system-ui, sans-serif;
 
     --ancho: 1128px;
     --margen: 66px;
@@ -244,7 +243,6 @@ main > section {
    Tzab-ek Aeronáutica — index.css
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root{
   --bg:            #0a0a0a;
@@ -265,9 +263,9 @@ main > section {
   --radius:        4px;
   --gutter:        clamp(1.25rem, 4vw, 4rem);
 
-  --font-head:     'Space Grotesk', 'Segoe UI', sans-serif;
-  --font-body:     'Space Grotesk', 'Segoe UI', sans-serif;
-  --font-mono:     'JetBrains Mono', 'Courier New', monospace;
+  --font-head:     'Chakra Petch', 'Segoe UI', sans-serif;
+  --font-body:     'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono:     'IBM Plex Mono', 'Courier New', monospace;
 }
 
 /* ---------- Reset ---------- */

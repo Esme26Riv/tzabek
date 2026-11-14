@@ -3,7 +3,6 @@
    Estilos de stem.html: título, imagen + tabla de programas y llamado a la acción.
    ========================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap");
 
 main {
     --oro: #e0a820;
@@ -16,7 +15,7 @@ main {
     width: min(1128px, 100% - 48px);
     margin-inline: auto;
     padding-top: 2px;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
     color: var(--texto);
 }
 
@@ -149,7 +148,7 @@ main {
 
 .texto1 td:last-child {
     text-align: right;
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 0.8rem;
     color: var(--verde);
 }
@@ -234,7 +233,7 @@ main {
 
 .seccion3 button {
     padding: 14px 26px;
-    font: 500 0.85rem "Space Grotesk", system-ui, sans-serif;
+    font: 500 0.85rem "IBM Plex Sans", system-ui, sans-serif;
     color: #0a0a0a;
     background: var(--oro);
     border: 0;

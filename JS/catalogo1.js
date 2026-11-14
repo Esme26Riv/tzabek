@@ -2,7 +2,7 @@
    catalogo1.js · Carrusel de drones de la página de inicio
    1) Pide a php/obtener_drones.php la lista de drones (JSON).
    2) Crea una tarjeta (enlace a dron.html?id=...) por cada dron.
-   3) Controla el carrusel: flechas, avance automático y pausa.
+   3) Controla el carrusel: flechas y avance automático.
    ========================================================== */
 
 "use strict";
@@ -158,8 +158,8 @@ async function cargarDrones() {
 }
 
 /* ----------------------------------------------------------
-   iniciarCarrusel(): conecta las flechas, el avance automático
-   y el botón de pausa con la pista de tarjetas.
+   iniciarCarrusel(): conecta las flechas y el avance automático
+   con la pista de tarjetas.
    El desplazamiento lo hace el navegador (scroll horizontal con
    scroll-snap en CSS); aquí solo se calcula cuánto mover.
    ---------------------------------------------------------- */
@@ -167,7 +167,6 @@ function iniciarCarrusel() {
     const pista = document.getElementById("contenedor-drones");
     const botonAnterior = document.getElementById("carrusel-anterior");
     const botonSiguiente = document.getElementById("carrusel-siguiente");
-    const botonPausa = document.getElementById("carrusel-pausa");
 
     if (!pista || !botonAnterior || !botonSiguiente) {
         return;
@@ -181,7 +180,7 @@ function iniciarCarrusel() {
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const comportamiento = reducirMovimiento ? "auto" : "smooth";
 
-    let pausadoPorUsuario = reducirMovimiento; // el usuario pulsó "Pausar"
+    let pausadoPorUsuario = reducirMovimiento;
     let pausadoTemporal = false;               // el mouse o el foco está sobre el carrusel
     let temporizador = null;
 
@@ -239,17 +238,12 @@ function iniciarCarrusel() {
         temporizador = null;
     }
 
-
-    // Las flechas y el botón de pausa solo se muestran si hay más tarjetas de las que caben.
+    // Las flechas solo se muestran si hay más tarjetas de las que caben.
     actualizarControlesCarrusel = function () {
         const hayDesbordamiento = pista.scrollWidth > pista.clientWidth + 2;
 
         botonAnterior.hidden = !hayDesbordamiento;
         botonSiguiente.hidden = !hayDesbordamiento;
-
-        if (pie) {
-            pie.hidden = !hayDesbordamiento;
-        }
     };
 
     // --- Eventos ---
@@ -268,14 +262,6 @@ function iniciarCarrusel() {
         }
     });
 
-    if (botonPausa) {
-        botonPausa.addEventListener("click", function () {
-            pausadoPorUsuario = !pausadoPorUsuario;
-            actualizarBotonPausa();
-            iniciarAutomatico();
-        });
-    }
-
     // Pausa temporal mientras el usuario tiene el mouse o el teclado dentro del carrusel.
     const carrusel = pista.closest(".carrusel");
 
@@ -289,7 +275,6 @@ function iniciarCarrusel() {
     // Si cambia el tamaño de la ventana, cambia cuántas tarjetas caben.
     window.addEventListener("resize", actualizarControlesCarrusel);
 
-    actualizarBotonPausa();
     iniciarAutomatico();
 }
 

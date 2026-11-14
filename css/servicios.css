@@ -4,7 +4,6 @@
    (las crea servicios.js) y la caja de cotización.
    ========================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
 
 /* ---------- Variables locales ---------- */
 .servicios,
@@ -14,7 +13,7 @@
     --panel: #121212;
     --texto: #f3efe6;
     --texto-suave: #9a9588;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
 }
 
 main {
@@ -179,7 +178,7 @@ main {
 
 #cotizacion button {
     padding: 14px 20px;
-    font: 500 0.82rem "Space Grotesk", system-ui, sans-serif;
+    font: 500 0.82rem "IBM Plex Sans", system-ui, sans-serif;
     color: #0a0a0a;
     background: var(--oro);
     border: 0;

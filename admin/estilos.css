@@ -4,7 +4,95 @@
    Adaptado de css/compartido.css
    ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Fuentes locales (carpeta font/) */
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("../font/chakra_petch/chakrapetch-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("../font/chakra_petch/chakrapetch-medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("../font/chakra_petch/chakrapetch-semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("../font/chakra_petch/chakrapetch-bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("../font/ibm-plex-sans/ibmplexsans-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("../font/ibm-plex-sans/ibmplexsans-medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("../font/ibm-plex-sans/ibmplexsans-semibold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("../font/ibm-plex-sans/ibmplexsans-bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../font/ibm-plex-mono/ibmplexmono-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../font/ibm-plex-mono/ibmplexmono-medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../font/ibm-plex-mono/ibmplexmono-semibold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 :root {
     --bg: #0a0a0a;
@@ -23,9 +111,9 @@
     --green: #35d399;
     --green-dim: #1f8f68;
 
-    --font-head: 'Space Grotesk', 'Segoe UI', sans-serif;
-    --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
-    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    --font-head: 'Chakra Petch', 'Segoe UI', sans-serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
 /* ---------- Base ---------- */
@@ -467,24 +555,68 @@ input {
         max-width: none;
     }
 }
+
 /* ---------- Listado y modificación de puesto/rol ---------- */
-.panel-listado h2 { margin: 0 0 8px; font-size: 21px; }
-.tabla-contenedor { width: 100%; overflow-x: auto; }
-.tabla-empleados { width: 100%; border-collapse: collapse; min-width: 650px; }
-.tabla-empleados th, .tabla-empleados td {
+.panel-listado h2 {
+    margin: 0 0 8px;
+    font-size: 21px;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-empleados {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.tabla-empleados th,
+.tabla-empleados td {
     padding: 13px 12px;
     border-bottom: 1px solid var(--line-strong);
     text-align: left;
     font-size: 13px;
     vertical-align: middle;
 }
-.tabla-empleados th { color: var(--gold); font-family: var(--font-mono); font-size: 11px; letter-spacing: .5px; }
-.tabla-empleados td { color: var(--text-dim); }
-.tabla-empleados input {
-    width: 100%; min-width: 150px; padding: 10px;
-    color: var(--text); background: var(--bg);
-    border: 1px solid var(--line-strong); border-radius: 3px;
+
+.tabla-empleados th {
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .5px;
 }
-.tabla-empleados input:focus { outline: none; border-color: var(--gold); }
-.boton-guardar-rol { width: auto; min-width: 90px; margin: 0; padding: 9px 13px; clip-path: none; }
-.boton-guardar-rol:disabled { opacity: .6; cursor: wait; }
+
+.tabla-empleados td {
+    color: var(--text-dim);
+}
+
+.tabla-empleados input {
+    width: 100%;
+    min-width: 150px;
+    padding: 10px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+}
+
+.tabla-empleados input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.boton-guardar-rol {
+    width: auto;
+    min-width: 90px;
+    margin: 0;
+    padding: 9px 13px;
+    clip-path: none;
+}
+
+.boton-guardar-rol:disabled {
+    opacity: .6;
+    cursor: wait;
+}
