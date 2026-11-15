@@ -1,28 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5S5H37JH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-     <link rel="stylesheet" href="css/catalogo.css?v=2">
-     <link rel="stylesheet" href="css/compartido.css?v=2">
-     <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
-     <script src="js/drone.js?v=2" defer></script>
-     <script src="js/catalogo2.js?v=2" defer></script>
+    <!-- Estilos: Font Awesome (iconos), CSS propio de la página y CSS compartido (header y footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/catalogo.css?v=2">
+    <link rel="stylesheet" href="css/compartido.css?v=2">
+    <!-- Scripts (defer: se ejecutan hasta que el HTML terminó de cargar) -->
+    <script src="js/drone.js?v=2" defer></script>
+    <script src="js/catalogo2.js?v=2" defer></script>
     <title>Catálogo de drones | Tzab-ek</title>
 
-   
+
     <script src="js/menu.js" defer></script>
 </head>
+
 <body>
-     <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
-     <header>
+    <!-- ENCABEZADO: logotipo, menú de navegación y botón de contacto (igual en todas las páginas) -->
+    <header>
         <a class="marca" href="index.html" aria-label="Tzab-ek Aeronáutica, inicio">
             <svg viewBox="0 0 32 32" aria-hidden="true">
-                <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
-                <path d="M11.5 12h9M16 12v8.5"/>
+                <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z" />
+                <path d="M11.5 12h9M16 12v8.5" />
             </svg>
             <span class="marca-texto">
                 <strong>TZAB-EK</strong>
@@ -31,12 +38,13 @@
         </a>
 
         <!-- Menú principal: el enlace de la página actual lleva class="activo" y aria-current="page" -->
-        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+            aria-controls="menu-principal">
             <span></span><span></span><span></span>
         </button>
 
         <nav id="menu-principal" aria-label="Navegación principal">
-            <a href="index.html" >Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="nosotros.html">Nosotros</a>
             <a href="catalogo.html" class="activo" aria-current="page">Catálogo</a>
             <a href="servicios.html">Servicios</a>
@@ -63,7 +71,7 @@
 
                 <!-- Mensaje de estado (sin resultados o error); aria-live lo anuncia a lectores de pantalla -->
                 <p id="mensaje-catalogo" aria-live="polite">
-                    
+
                 </p>
 
                 <!-- Cuadrícula de tarjetas de drones (se llena con catalogo2.js) -->
@@ -85,16 +93,16 @@
         </section>
     </main>
 
-     <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
-     <footer>
+    <!-- PIE DE PÁGINA: se repite igual en todas las páginas -->
+    <footer>
         <!-- Parte superior del footer: 4 columnas -->
         <section class="footer1">
             <!-- Columna 1: logotipo y lema -->
             <div class="uno">
                 <a class="marca" href="index.html" aria-label="Tzab-ek Aeronáutica, inicio">
                     <svg viewBox="0 0 32 32" aria-hidden="true">
-                        <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z"/>
-                        <path d="M11.5 12h9M16 12v8.5"/>
+                        <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z" />
+                        <path d="M11.5 12h9M16 12v8.5" />
                     </svg>
                     <span class="marca-texto">
                         <strong>TZAB-EK</strong>
@@ -119,19 +127,19 @@
             <div class="tres">
                 <h5>Síguenos</h5>
                 <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
-       aria-label="Facebook">
-        <i class="fa-brands fa-facebook-f"></i> 
-    </a>
+                    aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
 
-    <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw" target="_blank" rel="noopener noreferrer"
-       aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i> 
-    </a>
+                <a href="https://www.instagram.com/tzabekmx?fbclid=IwY2xjawVVu3NleHRuA2FlbQIxMABwZG9mBWJyaWQRMFQ3TzdUcVRtUU0yYnhxM1BzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfPRKUxfyBUL_nZuo1kjRflzGdtaO56T4GEnpe8-bxUjZwJsQqFAkJqUYihjc_aem_WPB5nO8CkviuIYMt_YEHsw"
+                    target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
 
-    <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
-       aria-label="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-    </a>
+                <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+                    aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
             </div>
 
             <!-- Columna 4: datos de contacto y botón de cotización -->
@@ -145,8 +153,10 @@
 
         <!-- Barra inferior: derechos reservados -->
         <section class="fotter2">
-            <p>© 2026 Tzab-ek Aeronáutica S.A. de C.V. Todos los derechos reservados. Aviso de privacidad y Términos y condiciones.</p>
+            <p>© 2026 Tzab-ek Aeronáutica S.A. de C.V. Todos los derechos reservados. Aviso de privacidad y Términos y
+                condiciones.</p>
         </section>
     </footer>
 </body>
+
 </html>

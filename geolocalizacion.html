@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Analytics (GA4): cambia G-XXXXXXXXXX por tu ID de medición -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/geolocalizacion.css">
+    <link rel="stylesheet" href="css/compartido.css">
+
+    <title>Cómo llegar | Tzab-ek Aeronáutica</title>
+    <script src="js/geolocalizacion.js" defer></script>
+    <script src="js/menu.js" defer></script>
+</head>
+
+<body>
+    <!-- ENCABEZADO (igual en todas las páginas) -->
+    <header>
+        <a class="marca" href="index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z" />
+                <path d="M11.5 12h9M16 12v8.5" />
+            </svg>
+            <span class="marca-texto">
+                <strong>TZAB-EK</strong>
+                <small>AERONÁUTICA</small>
+            </span>
+        </a>
+
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+            aria-controls="menu-principal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="stem.html">STEM</a>
+            <a href="faq.html">FAQ</a>
+            <a class="btn btn-oro nav-contacto" href="contactanos.html">Contáctanos</a>
+        </nav>
+
+        <a class="btn btn-oro" href="contactanos.html">Contáctanos</a>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: geolocalización: de tu ubicación actual a la empresa -->
+    <main>
+        <section>
+            <div class="seccion1">
+                <h1>Cómo llegar</h1>
+                <p>Ubica dónde estás y mira cómo llegar a Tzab-ek Aeronáutica desde tu ubicación actual.</p>
+            </div>
+
+            <div class="seccion2">
+                <!-- Columna izquierda: botón, estado y datos de la ubicación -->
+                <div class="datos-geo">
+                    <h2>Mi ubicación</h2>
+                    <button type="button" id="btn-ubicar" class="btn btn-oro">
+                        <i class="fa-solid fa-location-crosshairs"></i> Obtener mi ubicación
+                    </button>
+
+                    <!-- Mensajes de estado (cargando, error, éxito) -->
+                    <p id="estado" role="status" aria-live="polite">Presiona el botón y permite el acceso a tu
+                        ubicación.</p>
+
+                    <dl class="coordenadas">
+                        <dt>Latitud</dt>
+                        <dd id="lat">—</dd>
+                        <dt>Longitud</dt>
+                        <dd id="lng">—</dd>
+                        <dt>Precisión</dt>
+                        <dd id="precision">—</dd>
+                        <dt>Distancia a Tzab-ek</dt>
+                        <dd id="distancia">—</dd>
+                    </dl>
+
+                    <!-- Este enlace se activa cuando ya hay ubicación -->
+                    <a id="enlace-ruta" class="btn btn-borde desactivado" href="#" target="_blank"
+                        rel="noopener noreferrer" aria-disabled="true">
+                        <i class="fa-solid fa-route"></i> Cómo llegar a Tzab-ek
+                    </a>
+                </div>
+
+                <!-- Columna derecha: mapa del usuario y mapa de la empresa -->
+                <div class="mapas">
+                    <h2>Mapa de mi ubicación</h2>
+                    <iframe id="mapa-usuario" title="Mapa de mi ubicación"
+                        src="https://maps.google.com/maps?q=Ciudad%20Ju%C3%A1rez%20Chihuahua&z=11&output=embed"
+                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+                    <h2>Tzab-ek Aeronáutica</h2>
+                    <p class="direccion-empresa">Del Ejido 4347, Los Nogales, 32350 Juárez, Chih.</p>
+                    <iframe title="Mapa de Tzab-ek Aeronáutica"
+                        src="https://maps.google.com/maps?q=31.726303579,-106.447799367&z=16&output=embed"
+                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA (igual en todas las páginas) -->
+    <footer>
+        <section class="footer1">
+            <div class="uno">
+                <a class="marca" href="index.html" aria-label="Tzab-ek Aeronáutica, inicio">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M16 2.5 28 9.5v13L16 29.5 4 22.5v-13z" />
+                        <path d="M11.5 12h9M16 12v8.5" />
+                    </svg>
+                    <span class="marca-texto">
+                        <strong>TZAB-EK</strong>
+                        <small>AERONÁUTICA</small>
+                    </span>
+                </a>
+                <p>Innovación, tecnología y educación para un mejor futuro.</p>
+            </div>
+
+            <div class="dos">
+                <h5>Explorar</h5>
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="stem.html">STEM</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+
+            <div class="tres">
+                <h5>Síguenos</h5>
+                <a href="https://www.facebook.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/tzabekmx" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@tzabekmx" target="_blank" rel="noopener noreferrer"
+                    aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+
+            <div class="cuatro">
+                <h5>Contacto</h5>
+                <p>Ciudad Juárez, Chihuahua</p>
+                <p>Teléfono y correo por confirmar</p>
+                <a class="cta-footer" href="contactanos.html">Solicitar cotización</a>
+            </div>
+        </section>
+
+        <section class="fotter2">
+            <p>© 2026 Tzab-ek Aeronáutica S.A. de C.V. Todos los derechos reservados. Aviso de privacidad y Términos y
+                condiciones.</p>
+        </section>
+    </footer>
+</body>
+
+</html>
